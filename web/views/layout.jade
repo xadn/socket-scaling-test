@@ -1,0 +1,19 @@
+!!!5
+html
+  head
+    title #{title} - Demo Site
+    script(src='/primus/primus.js')
+    script.
+      var primus = Primus.connect();
+
+      primus.on('data', function message(data) {
+        console.log('Received a new message from the server', data);
+      });
+
+      primus.on('open', function open() {
+        console.log('Connection is alive and kicking');
+      });
+  body
+    header
+      h1 Demo Site
+      block content
